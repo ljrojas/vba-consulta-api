@@ -1,6 +1,18 @@
 # plumber.R
 
+
+
 data <- read.csv2('data_magallanes.csv', fileEncoding = 'UTF-8')
+
+#* Retornar
+#* @param annio
+#* @param mes
+#* @get /consulta
+query <- function(annio, mes) {
+  subset(data, year==as.integer(annio) & mes_central==as.integer(mes))
+}
+
+
 
 #* Echo back the input
 #* @param msg The message to echo
